@@ -9,21 +9,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  model: function(params) {
+    return this.store.findRecord('note', params.note_id);
+  },
+  
   actions: {
-    login: function() {
-      this.store.query('user', {
-        name: this.controller.get('name')
-      }).then((users) => {
-        if(users.get('length') === 1) {
-          var user = users.objectAt(0);
-          this.controllerFor('application').set('user',user);
-          this.transitionTo('notebooks');
-          this.transitionTo('notebooks', user.get('id'));
-        }
-        else {
-           console.log('unexpected query result');
-        }
-      });
-    } 
+    close: function() {
+      this.transitionTo('notebooks.notes');
+    }
   }
 });

@@ -1,10 +1,10 @@
-<div class="col-md-12">
+<h2>
   Notes
-</div>
+</h2>
 <div>
   <div class="col-md-4">
-    <div>
-      title: {{input value=title}} <button {{action 'addNote'}}>Add</button>
+    <div class="padding">
+      Title: {{input value=title}} <button class="btn btn-primary" {{action 'addNote'}}>Add</button>
     </div>
     <div>
       <ul>
@@ -13,7 +13,7 @@
             {{#link-to 'notebooks.notes.note' note.id}}
               {{note.title}}
             {{/link-to}}
-            <button {{action 'deleteNote' note}}>delete</button>
+            <button  class="btn btn-danger btn-xs" {{action 'deleteNote' note}}>delete</button>
           </li>
         {{else}}
           <div>No notes found</div>
@@ -23,5 +23,5 @@
   </div>
   <div class="col-md-8">
     {{outlet}}
-  </div>  
+  </div>
 </div>

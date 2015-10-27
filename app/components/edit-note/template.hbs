@@ -1,13 +1,15 @@
+<h3>Edit</h3>
 <div>
+  Title:
   {{input value=note.title}}
-  <button {{action "saveNote"}}>save</button>
-  <button {{action "closeNote"}}>close</button>
+  <button class="btn btn-success btn-xs" {{action "saveNote"}}>save</button>
+  <button class="btn btn-info btn-xs" {{action "closeNote"}}>close</button>
+</div>
+<div class="padding">
+  {{markdown-to-html markdown=note.body}}
 </div>
 <div>
   {{textarea rows=10 cols=60 value=note.body}}
-</div>
-<div>
-  {{markdown-to-html markdown=note.body}}
 </div>
 <div>
   {{yield}}

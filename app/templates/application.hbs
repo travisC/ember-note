@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      Welcome to EmberNote
-    </div>
-    <div class="col-md-10">
+    <div class="pull-right col-md-4 padding">
       {{#if user}}
         Hello, {{user.name}}
       {{/if}}
       {{#unless user}}
         {{#link-to 'register'}}register{{/link-to}}&nbsp;
         {{#link-to 'login'}}login{{/link-to}}
-      {{/unless}}  
+      {{/unless}}
+    </div>
+    <div class="col-md-8">
+      <h1>Welcome to EmberNote</h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row padding">
     <div>
       {{outlet}}
     </div>

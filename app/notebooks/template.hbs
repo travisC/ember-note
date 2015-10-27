@@ -1,9 +1,9 @@
 <div>
   <div class="col-md-3">
-    <div>Notebooks</div>
-    <div>
-      title: {{input value=title}} 
-      <button {{action 'addNotebook'}}>Add</button>
+    <h2>Notebooks</h2>
+    <div class="padding">
+      Title: {{input value=title}}
+      <button class="btn btn-primary" {{action 'addNotebook'}}>Add</button>
     </div>
     <div>
       <ul>
@@ -19,5 +19,5 @@
   </div>
   <div class="col-md-9">
     {{outlet}}
-  </div>  
+  </div>
 </div>

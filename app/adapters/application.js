@@ -9,7 +9,7 @@
 import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
-  namespace: 'api/alt',
+  namespace: 'api',
   headers: function() {
     if(this.get('session.user')) {
       return {

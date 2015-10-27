@@ -6,15 +6,16 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/mwjsember for more book information.
 ***/
-import DS from 'ember-data';
+import Ember from 'ember';
 
-export default DS.RESTAdapter.extend({
-  namespace: 'api/alt',
-  headers: function() {
-    if(this.get('session.user')) {
-      return {
-        'username' : this.get('session.user').get('name')
-      };
-    }
-  }.property('session.user')
-});
+export function initialize(container,application) {
+   var session = Ember.Object.extend();
+   application.register('session:main', session);
+   application.inject('adapter', 'session', 'session:main');
+   application.inject('route','session','session:main');
+}
+
+export default {
+  name: 'session',
+  initialize: initialize
+};

@@ -12,7 +12,7 @@ module.exports = function(app) {
   var bodyParser = require('body-parser');
   app.use(bodyParser.json());
   var nedb = require('nedb');
-  var noteDB = new nedb({ filename : 'notes', autoload: true});
+  var noteDB = new nedb({ filename : 'notes-alt-api', autoload: true});
 
   notesRouter.get('/', function(req, res) {
     noteDB.find(req.query).exec(function(error,notes) {
@@ -68,5 +68,5 @@ module.exports = function(app) {
     });
   });
 
-  app.use('/api/notes', notesRouter);
+  app.use('/api/alt/notes', notesRouter);
 };
